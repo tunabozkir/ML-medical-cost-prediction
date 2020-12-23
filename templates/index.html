@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+</head>
+<body>
+             <h1 align="center">Total Medical Cost Prediction</h1>
+
+
+<div>
+    <form action="{{ url_for('home') }}" method='POST'>
+    <fieldset>
+
+        <label>Age:  </label>
+        <input name="age" type="text" placeholder="ex: 22" required>
+        <br>
+        <br>
+        <label>Body mass index(Bmi):  </label>
+        <input name="bmi" type="text" placeholder="ex: 17500" required>
+        <br>
+        <br>
+        <label>Number of children covered by health insurance:  </label>
+        <input name="children" type="number" required>
+        <br>
+        <br>
+        <label for="region">Residential area:  </label>
+        <select id="region" name="region" required>
+            <option value="0" >Northeast
+            <option value="1" >Northwest
+            <option value="2" >Southwest
+            <option value="3" >Southeast
+        </select>
+        <br>
+        <br>
+        <label for="sex_male">Gender:  </label>
+        <select id="sex_male" name="sex_male" required>
+            <option value="1" >Male
+            <option value="0" >Female
+        </select>
+        <br>
+        <br>
+        <label for="smoker_yes">Smoker:  </label>
+        <select id="smoker_yes" name="smoker_yes" required>
+            <option value="1" >Yes
+            <option value="0" >No
+        </select>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+<br>
+</div>
+<div class="result" align="center">
+         <br> Total individual medical costs billed by health insurance:
+           <p style="font-size:50px">${{ result }}</p>
+</div>
+</body>
+</html>
